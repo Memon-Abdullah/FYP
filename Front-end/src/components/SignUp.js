@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import { Button, Form, Container } from "react-bootstrap";
+import "../assets/style/signUp.css";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -14,46 +14,48 @@ const SignUp = () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       alert("User registered successfully!");
-      navigate("/"); // Redirect back to login
+      navigate("/"); // Redirect to login
     } catch (error) {
       alert("Error signing up: " + error.message);
     }
   };
 
   return (
-    <Container className="mt-5">
-      <h2>Sign Up</h2>
-      <Form onSubmit={handleSignUp}>
-        <Form.Group className="mb-3">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </Form.Group>
+    <div className="signup-container">
+      {/* LEFT PANEL */}
+      <div className="left-panel">
+        <h2>From Audio, To Emotion.</h2>
+        <h1>MoodMeet.</h1>
+      </div>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Sign Up
-        </Button>
-
-        {/* Back to Login Button */}
-        <Button variant="link" onClick={() => navigate("/")}>
-          Already have an account? Login
-        </Button>
-      </Form>
-    </Container>
+      {/* RIGHT PANEL */}
+      <div className="right-panel">
+        <div className="signup-box">
+          <h1>Sign Up</h1>
+          <form onSubmit={handleSignUp}>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit">Sign Up</button>
+          </form>
+          <div className="switch-link">
+            Already have an account?{" "}
+            <a onClick={() => navigate("/login")}>Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

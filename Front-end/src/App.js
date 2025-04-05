@@ -15,6 +15,7 @@ const App = () => {
         
         {/* Show SignUp page when user clicks "Sign Up" */}
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
         
         {/* Redirect to Dashboard after login */}
         <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/" />} />

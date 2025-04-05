@@ -2,58 +2,52 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import { Button, Form, Container } from "react-bootstrap";
+import "../assets/style/login.css";
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       setUser(userCredential.user);
-      navigate("/dashboard"); // Redirect to Dashboard after login
+      navigate("/dashboard");
     } catch (error) {
       alert("Login failed: " + error.message);
     }
   };
 
   return (
-    <Container className="mt-5">
-      <h2>Login</h2>
-      <Form onSubmit={handleLogin}>
-        <Form.Group className="mb-3">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
+    <div className="login-container">
+      <div className="login-box">
+        <h2>From Audio, To Emotion.</h2>
+        <h1>MoodMeet.</h1>
+        <form onSubmit={handleLogin}>
+          <input
             type="email"
+            placeholder="username"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </Form.Group>
-
-        <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
+          <input
             type="password"
+            placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </Form.Group>
+          <button type="submit">login</button>
+        </form>
+        <div className="signup-text">
+          new here? <a onClick={() => navigate("/signup")}>Sign up now!</a>
+        </div>
+      </div>
 
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
-
-        {/* Sign Up Button - Redirects to SignUp Page */}
-        <Button variant="link" onClick={() => navigate("/signup")}>
-          Don't have an account? Sign Up
-        </Button>
-      </Form>
-    </Container>
+      
+    </div>
   );
 };
 
