@@ -11,7 +11,7 @@ const SignUp = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    try {
+    try {   
       await createUserWithEmailAndPassword(auth, email, password);
       alert("User registered successfully!");
       navigate("/"); // Redirect to login

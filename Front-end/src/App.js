@@ -23,12 +23,14 @@ const App = () => {
 
   return (
     <Router>
+      {/* <Nav  bar/> */}
       {/* Conditionally render Navbar  */}
+      {console.log(user)}
       {user && <> <Navbar /> <ModelSelector /></>}
 
       <Routes>
         {/* Redirect to Dashboard if logged in, else show Login */}
-        <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Login setUser={setUser} />} />
+        <Route path="/" element={user ? <Navigate to="/dashboard" /> :  <Login setUser={setUser} />} />
 
         {/* Show SignUp page when user clicks "Sign Up" */}
         <Route path="/signup" element={<SignUp />} />
