@@ -21,10 +21,11 @@ const {setUser} = useUser()
   return (
     <nav className="custom-navbar">
       <div className="nav-links">
-        <Link to="/dashboard">Home</Link>
+        <Link to="/home">Home</Link>
         <Link to="/chat">Chat</Link>
         <Link to="/about">About</Link>
         <Link to="/results">Results</Link>
+        {/* <button onClick={() => navigate("/signup")}>SignIn</button> */}
         <button onClick={handleLogout} className="logout-button">Logout</button>
       </div>
     </nav>

@@ -6,7 +6,11 @@ import { UserProvider } from "./context/UserContext"; // 👈 Import it
 const root = ReactDOM.createRoot(document.getElementById('hellow'));
 
 root.render(
-
+  // <React.StrictMode>
+  //  <BrowserRouter>
+  //      <App/>
+  //  </BrowserRouter>
+  // </React.StrictMode>
   <React.StrictMode>
     <UserProvider>
     <App />
