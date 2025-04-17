@@ -8,8 +8,8 @@ import model2Image3 from '../assets/images/result6.png';
 import "../assets/style/help.css";
 const Results = () => {
   return (
-    <div className="min-h-screen bg-[#24024C] flex flex-col justify-center items-center text-white p-8">
-      <h1 className="text-4xl md:text-5xl font-[cursive] text-center mb-6 fontFamily">
+    <div className="min-h-screen bg-[#24024C] flex flex-col justify-center items-center text-white p-8 ">
+      <h1 className="text-4xl md:text-5xl font-[cursive] text-center mb-6 fontFamily mt-14">
         About The Model's <br /> Performance.
       </h1>
 

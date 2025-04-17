@@ -6,69 +6,51 @@ import {
     Route,
     Navigate,
 } from 'react-router-dom';
+
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
-import Navbar from './components/Navbar';
 import MeetMoodIntro from './components/MeetMoodIntro';
 import ModelSelector from './components/ModelSelector';
 import Results from './components/Results';
-import { useUser } from './context/UserContext'; // 👈
+import { useUser } from './context/UserContext';
 import Instructions from './components/Instructions';
-import Header from "./components/Header";
+import Header from './components/Header';
 import LandingPage from './components/LandingPage';
 import Definition from './components/Definition';
 import Features from './components/Features';
+import FAQs from './components/FAQs';
+import ProtectedRoute from './components/ProtectedRoute'; // 👈 Add this
+
 const App = () => {
-    const { user } = useUser(); // 👈 use context
+    const { user } = useUser();
 
     return (
-    //     <div>
-     
-    //   <Header />
-    //   <Routes>
-    //     <Route path={"/"} element = {<Herosection/>}/>
-    //     <Route path={"/Projects "} element = {<Project/>}/>
-    //     <Route path={"/About"} element = {<About />}/>
-    //     <Route path={"/Contact"} element = {<Contact />}/>
-    //   </Routes>  
-    //   <Footer />
-     
-      
-    // </div>
         <Router>
-            {/* <Navbar /> */}
-            {/* <Header /> */}
-            {/* <LandingPage /> */}
-            {/* <Definition /> */}
-            {/* <Instructions /> */}
-            {/* <Features/> */}
-            {user && (
-                <>
-                    <Navbar />
-                    <ModelSelector />
-                </>
-            )}
+            <Header />
             <Routes>
-                <Route
-                    path="/"
-                    element={user ? <Navigate to="/dashboard" /> : <Login />}
-                />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<LandingPage />} />
                 <Route path="/about" element={<MeetMoodIntro />} />
+                <Route path="/results" element={<Results />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
 
-                {/* <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/" />} /> */}
+                {/* Protected route for /chat */}
+                <Route
+                    path="/chat"
+                    element={
+                        <ProtectedRoute>
+                            <ModelSelector />
+                        </ProtectedRoute>
+                    }
+                />
             </Routes>
 
-            <MeetMoodIntro />
-            {/* <Instructions /> */}
-            
-            <Results />
-
+            {/* Public Components on Home Page */}
+            <Definition />
+            <Instructions />
+            <Features />
+            <FAQs />
             <Footer />
         </Router>
     );
