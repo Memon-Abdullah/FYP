@@ -27,8 +27,8 @@ const ModelSelector = () => {
   // Model data to match the image
   const models = [
     {
-      id: 'cnn-lstm',
-      name: 'CNN-LSTM Hybrid',
+      id: 'lstm',
+      name: 'LSTM',
       description: 'By combining Convolutional Neural Networks (CNNs) for spatial/audio feature extraction with LSTMs for sequence modeling, this hybrid model digs deeper into both what\'s being said and how it unfolds over time. It\'s especially effective with prompt-based embeddings.',
     },
     {
@@ -37,9 +37,9 @@ const ModelSelector = () => {
       description: 'Trained on RAVDESS with DistilHuBERT features, the Long Short-Term Memory (LSTM) model excels at capturing emotional patterns across speech sequences — making it great at picking up on how you say things, not just individual sounds.',
     },
     {
-      id: 'model3',
-      name: 'Model 3',
-      description: 'Details',
+      id: 'Birectional LSTM',
+      name: 'BI-LSTM',
+      description: 'A BiLSTM model trained on the SAVEE dataset to capture both past and future contextual dependencies in speech for improved emotion recognition accuracy.',
     },
   ];
 

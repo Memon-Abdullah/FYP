@@ -1,89 +1,25 @@
-// Footer.jsx
+// Footer.js
 import React from "react";
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaTwitter,
-  FaInstagram,
-  FaYoutube,
-  FaWordpress,
-} from "react-icons/fa";
-import { FaPhone, FaEnvelope, FaComments } from "react-icons/fa6";
-import "../assets/style/footer.css"; 
+import Waveform from "../assets/images/pngtree-sound-waves-equalizer-audio-radio-signal-music-recording-vector-png-image_6678910 3.png";
 
 const Footer = () => {
   return (
-    <footer className="footerr_body">
-      <div className="footerr_container">
-        {/* Contact Section */}
-        <div className="footerr_section">
-          <h4 className="footerr_title">
-            <FaComments /> Chat With Sales
-          </h4>
-          <p className="footerr_info">
-            <FaPhone /> 1 (888) 602-6756
-          </p>
-          <p className="footerr_info">
-            <FaEnvelope /> sales@pressable.com
-          </p>
+    <footer className="bg-[#250f59] text-white py-12 px-6">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center md:justify-start gap-12">
+        
+        <div>
+          <img
+            src={Waveform}
+            alt="Waveform"
+            className="w-72 md:w-[850px]" 
+          />
         </div>
 
-        {/* Solutions */}
-        <div className="footerr_section">
-          <h4 className="footerr_subtitle">Solutions</h4>
-          <ul className="footerr_list">
-            <li>Managed WordPress Hosting</li>
-            <li>Agencies</li>
-            <li>Small & Medium-Sized Businesses</li>
-            <li>Freelancers</li>
-            <li>High-Traffic Websites</li>
-            <li>WooCommerce</li>
-          </ul>
+        <div className="text-center md:text-left">
+          <p className="text-2xl font-light mb-3">Need Some Help?</p>
+          <p className="text-xl hover:underline cursor-pointer mb-1">User Manual</p>
+          <p className="text-xl hover:underline cursor-pointer">Contact Us</p>
         </div>
-
-        {/* Company */}
-        <div className="footerr_section">
-          <h4 className="footerr_subtitle">Company</h4>
-          <ul className="footerr_list">
-            <li>About Us</li>
-            <li>Careers</li>
-            <li>Customer Stories</li>
-            <li>Contact</li>
-            <li>Legal</li>
-            <li>Press Kit</li>
-          </ul>
-        </div>
-
-        {/* Resources + Social */}
-        <div className="footerr_section">
-          <h4 className="footerr_subtitle">Resources</h4>
-          <ul className="footerr_list">
-            <li>Blog</li>
-            <li>eBooks</li>
-            <li>Knowledge Base</li>
-            <li>Customer Reviews</li>
-            <li>Affiliate Program</li>
-            <li>Strategic Partners</li>
-          </ul>
-          <div className="footerr_socials">
-            <FaFacebookF />
-            <FaLinkedinIn />
-            <FaTwitter />
-            <FaInstagram />
-            <FaYoutube />
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="footerr_bottom">
-        <div className="footerr_powered">
-          <FaWordpress />
-          <span>Powered by AMA</span>
-        </div>
-        <a href="#" className="footerr_link">
-          Host With Pressable
-        </a>
       </div>
     </footer>
   );

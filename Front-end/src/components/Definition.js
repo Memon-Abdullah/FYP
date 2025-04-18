@@ -3,7 +3,7 @@ import React from 'react';
 const Definition = () => {
     return (
         <div className='flex flex-col items-center justify-center text-center px-4 pt-6 pb-5' >
-            <p className="max-w-3xl mt-2 text-[#333] text-[17px] font-normal leading-relaxed bg-white/80 p-6 rounded-lg shadow-lg">
+            <p className="max-w-3xl mt-2 text-[#333] text-[19px] font-normal leading-relaxed bg-white/80 p-6 rounded-lg shadow-lg">
                 Welcome to MoodMeet, an innovative chatbot designed to bridge
                 the gap between technology and human emotions. By leveraging
                 advanced Speech Emotion Recognition (SER) technology powered by

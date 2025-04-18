@@ -16,8 +16,8 @@ export default function Features() {
                 />
             </div>
 
-            <h1 className="text-6xl font-bold text-pink-600">Key Features</h1>
-            <p className="text-gray-600 mt-2 text-center text-lg">
+            <h1 className="text-8xl font-bold text-pink-600">Key Features</h1>
+            <p className="text-gray-600 mt-2 text-center text-xl">
                 Made to understand you — one word at a time.
             </p>
 

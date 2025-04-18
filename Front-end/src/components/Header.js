@@ -50,14 +50,14 @@ export default function Header() {
                 {!user ? (
                     <>
                         <button
-                            className="bg-[#b6b6f7] text-white px-10 rounded-lg text-sm hover:opacity-90 transition"
+                            className="bg-[#b6b6f7] text-white px-10 py-2 rounded-lg text-sm hover:opacity-90 transition"
                             onClick={() => navigate('/login')}>
                             login
                         </button>
                         <button
-                            className="bg-[#9e56b8] text-white px-10 rounded-lg text-sm hover:opacity-90 transition"
+                            className="bg-[#9e56b8] text-white px-10 py-2 rounded-lg text-sm hover:opacity-90 transition"
                             onClick={() => navigate('/signup')}>
-                            sign up
+                            signup
                         </button>
                     </>
                 ) : (
