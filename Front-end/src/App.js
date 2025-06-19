@@ -1,12 +1,11 @@
 // src/App.js
-import React from 'react';
+import React, { useState } from 'react';
 import {
     BrowserRouter as Router,
     Routes,
     Route,
     Navigate,
 } from 'react-router-dom';
-
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
@@ -20,10 +19,11 @@ import LandingPage from './components/LandingPage';
 import Definition from './components/Definition';
 import Features from './components/Features';
 import FAQs from './components/FAQs';
-import ProtectedRoute from './components/ProtectedRoute'; // 👈 Add this
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
     const { user } = useUser();
+    const [predictionResult, setPredictionResult] = useState(null);
 
     return (
         <Router>
@@ -31,7 +31,10 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/about" element={<MeetMoodIntro />} />
-                <Route path="/results" element={<Results />} />
+                <Route 
+                    path="/results" 
+                    element={<Results predictionResult={predictionResult} />} 
+                />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
 
@@ -40,10 +43,13 @@ const App = () => {
                     path="/chat"
                     element={
                         <ProtectedRoute>
-                            <ModelSelector />
+                            <ModelSelector onPrediction={setPredictionResult} />
                         </ProtectedRoute>
                     }
                 />
+                
+                {/* Redirect to home for unknown routes */}
+                <Route path="*" element={<Navigate to="/" />} />
             </Routes>
 
             {/* Public Components on Home Page */}
@@ -57,3 +63,4 @@ const App = () => {
 };
 
 export default App;
+
